@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# environment variables
+.env
+
+# build output
+dist/
+build/
+
+# logs
+logs/
+*.log
+
+# vite / local config
+*.local
+
+# prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store

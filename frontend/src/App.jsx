@@ -7,6 +7,7 @@ import DashboardRedirect from "./pages/DashboardRedirect";
 import UserDashboard from "./pages/dashboards/UserDashboard";
 import TrainerDashboard from "./pages/dashboards/TrainerDashboard";
 import AdminDashboard from "./pages/dashboards/AdminDashboard";
+import AIChat from "./pages/AIChat";
 
 function App() {
   return (
@@ -55,6 +56,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Attendance />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/ai"
+          element={
+            <ProtectedRoute>
+              <AIChat />
             </ProtectedRoute>
           }
         />

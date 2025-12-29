@@ -1,12 +1,14 @@
 import express from "express";
 import { protect } from "../middleware/authMiddleware.js";
 import { restrictTo } from "../middleware/roleMiddleware.js";
+import { aiChat } from "../controllers/aiController.js";
+import { getDashboardInsight } from "../controllers/aiController.js";
 
 const router = express.Router();
 
 /**
  * AI Routes with Role-Based Access Control
- * 
+ *
  * - ADMIN: Full access to all AI features
  * - TRAINER: Access to trainer-specific AI features
  * - USER: Limited access to user-facing AI features
@@ -103,6 +105,9 @@ router.post(
     });
   }
 );
+router.post("/chat", protect, aiChat);
+
+router.get("/dashboard-insight", protect, getDashboardInsight);
 
 export default router;
 

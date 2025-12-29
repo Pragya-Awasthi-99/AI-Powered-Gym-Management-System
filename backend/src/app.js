@@ -7,6 +7,7 @@ import attendanceRoutes from "./routes/attendanceRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import calorieRoutes from "./routes/calorieRoutes.js";
 
 const app = express();
 
@@ -27,4 +28,5 @@ app.use("/api/ai", aiRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/trainer", trainerRoutes);
+app.use("/api/calories", calorieRoutes);
 export default app;

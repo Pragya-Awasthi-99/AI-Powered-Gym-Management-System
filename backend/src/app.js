@@ -29,4 +29,8 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/trainer", trainerRoutes);
 app.use("/api/calories", calorieRoutes);
+
+app.get("/", (req, res) => {
+  res.send("AI Powered Gym Management Backend is running");
+});
 export default app;

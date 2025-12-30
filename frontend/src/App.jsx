@@ -1,38 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import Attendance from "./pages/Attendance";
 import AIChat from "./pages/AIChat";
+import Attendance from "./pages/Attendance";
 
 function App() {
-  const token = localStorage.getItem("token");
-
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public */}
-        <Route path="/" element={<Login />} />
-
-        {/* Protected */}
-        <Route
-          path="/dashboard"
-          element={token ? <Dashboard /> : <Navigate to="/" />}
-        />
-
-        <Route
-          path="/attendance"
-          element={token ? <Attendance /> : <Navigate to="/" />}
-        />
-
-        <Route
-          path="/ai"
-          element={token ? <AIChat /> : <Navigate to="/" />}
-        />
-
-        {/* Fallback */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/ai" element={<AIChat />} />
+      <Route path="/attendance" element={<Attendance />} />
+    </Routes>
   );
 }
 

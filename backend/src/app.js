@@ -11,7 +11,13 @@ import calorieRoutes from "./routes/calorieRoutes.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", // frontend URL
+  credentials: true,
+  // methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  // allowedHeaders: ["Content-Type", "Authorization"],
+})
+);
 app.use(express.json());
 
 // Health check

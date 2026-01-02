@@ -1,16 +1,27 @@
+import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
-const DashboardLayout = ({ children }) => {
-  return (
-    <div className="flex min-h-screen bg-gray-100">
-      <Sidebar />
-      <div className="flex-1">
-        <Topbar />
-        <main className="p-6">{children}</main>
-      </div>
-    </div>
-  );
-};
+export default function DashboardLayout({ children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-export default DashboardLayout;
+  // 🔐 Read role from persisted auth
+  const user = JSON.parse(localStorage.getItem("user"));
+  const role = user?.role?.toLowerCase() || "user";
+
+  return (
+    <>
+      <Sidebar
+        role={role}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+
+      <Topbar onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+
+      <main className="pt-16 md:ml-64 min-h-screen bg-slate-950">
+        {children}
+      </main>
+    </>
+  );
+}
